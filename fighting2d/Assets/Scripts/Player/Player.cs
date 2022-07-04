@@ -6,14 +6,13 @@ using UnityEngine.Events;
 [RequireComponent(typeof(Animator))]
 public class Player : MonoBehaviour
 {
-    public bool WasdPlayer;
-    public event UnityAction<int> HealthChanged;
-
     private int _health = 100;
 
     private Animator _animator;
     private GameOverHandler _gameOverHandler;
 
+    public bool WasdPlayer { get; private set; }
+    public event UnityAction<int> HealthChanged;
     private void Start()
     {
         HealthChanged?.Invoke(_health);
